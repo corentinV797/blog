@@ -7,25 +7,7 @@ export class PostsService {
   posts: Post[] = [];
   postsSubject = new Subject<Post[]>();
 
-  constructor() {
-    this.posts = [
-      {
-        title: "Mon premier post",
-        content: "contenu de mon premier post",
-        loveVoteCount: 0
-      },
-      {
-        title: "Mon deuxième post",
-        content: "contenu de mon deuxième post",
-        loveVoteCount: 0
-      },
-      {
-        title: "Encore un post",
-        content: "contenu de mon dernier post",
-        loveVoteCount: 0
-      }
-    ];
-  }
+  constructor() { }
 
   emitPosts() {
     this.postsSubject.next(this.posts);
