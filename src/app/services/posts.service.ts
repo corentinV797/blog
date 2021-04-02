@@ -10,16 +10,22 @@ export class PostsService {
   constructor() {
     this.posts = [
       {
+        id: 0,
         title: "Mon premier post",
         content: "contenu de mon premier post",
+        loveVoteCount: 0
       },
       {
+        id: 1,
         title: "Mon deuxième post",
         content: "contenu de mon deuxième post",
+        loveVoteCount: 0
       },
       {
+        id: 2,
         title: "Encore un post",
         content: "contenu de mon dernier post",
+        loveVoteCount: 0
       }
     ];
   }
@@ -31,5 +37,15 @@ export class PostsService {
   getPosts() {
     this.emitPosts();
     return this.posts;
+  }
+
+  loveIt(i: number) {
+    this.posts[i].loveVoteCount++;
+    this.emitPosts();
+  }
+
+  dontLoveIt(i: number) {
+    this.posts[i].loveVoteCount--;
+    this.emitPosts();
   }
 }
