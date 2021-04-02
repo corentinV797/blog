@@ -34,11 +34,6 @@ export class PostsService {
     this.postsSubject.next(this.posts);
   }
 
-  getPosts() {
-    this.emitPosts();
-    return this.posts;
-  }
-
   loveIt(i: number) {
     this.posts[i].loveVoteCount++;
     this.emitPosts();
