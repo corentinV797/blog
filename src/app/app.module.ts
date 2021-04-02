@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { PostlistComponent } from './postlist/postlist.component';
 import { PostlistitemComponent } from './postlistitem/postlistitem.component';
 import { PostsService } from './services/posts.service';
+import { HeaderComponent } from './header/header.component';
 
 const appRoutes: Routes = [
   { path: 'posts', component: PostlistComponent },
@@ -18,7 +19,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     PostlistComponent,
-    PostlistitemComponent
+    PostlistitemComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
