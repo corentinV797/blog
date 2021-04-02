@@ -33,11 +33,11 @@ export class PostlistitemComponent implements OnInit {
   }
 
   downVote() {
-    this.postsService.dontLoveIt(this.post.id);
+    this.postsService.dontLoveIt(this.post);
   }
 
   upVote() {
-    this.postsService.loveIt(this.post.id);
+    this.postsService.loveIt(this.post);
   }
 
   deletePost() {

@@ -1,7 +1,6 @@
 export default class Post {
     public loveVoteCount: number;
-    constructor(public id: number, public title: string, public content: string) {
-        this.id = id;
+    constructor( public title: string, public content: string) {
         this.title = title;
         this.content = content;
         this.loveVoteCount = 0;
