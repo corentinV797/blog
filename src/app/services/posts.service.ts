@@ -43,4 +43,23 @@ export class PostsService {
     this.posts[i].loveVoteCount--;
     this.emitPosts();
   }
+
+  createNewPost(post: Post) {
+    this.posts.push(post);
+    this.emitPosts;
+  }
+
+  removePost(post: Post) {
+    const postIndexToRemove = this.posts.findIndex(
+      (postEl) => {
+        if(postEl === post) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    )
+    this.posts.splice(postIndexToRemove, 1);
+    this.emitPosts();
+  }
 }
