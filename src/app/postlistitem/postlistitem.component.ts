@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import Post from '../post.model';
+import { PostsService } from '../services/posts.service';
 
 @Component({
   selector: 'app-postlistitem',
@@ -6,40 +8,38 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./postlistitem.component.scss']
 })
 export class PostlistitemComponent implements OnInit {
-  @Input() title: string;
-  @Input() content: string;
-  loveVoteCount = 0;
-  lastUpdate = new Date();
+  @Input() post!: Post;
 
-  constructor() {
-    this.title = '';
-    this.content = '';
-  }
+  constructor(private postsService: PostsService) { }
 
   ngOnInit(): void {
   }
 
   getLoveVoteCount() {
-    return this.loveVoteCount;
+    return this.post.loveVoteCount;
   }
 
   getLastUpdate() {
-    return this.lastUpdate;
+    return this.post.lastUpdate;
   }
 
   getTitle() {
-    return this.title;
+    return this.post.title;
   }
 
   getContent() {
-    return this.content;
+    return this.post.content;
   }
 
   downVote() {
-    this.loveVoteCount--;
+    this.postsService.dontLoveIt(this.post);
   }
 
   upVote() {
-    this.loveVoteCount++;
+    this.postsService.loveIt(this.post);
+  }
+
+  deletePost() {
+    this.postsService.removePost(this.post);
   }
 }
