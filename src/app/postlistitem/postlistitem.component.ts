@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import Post from '../post.model';
 
 @Component({
   selector: 'app-postlistitem',
@@ -6,8 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./postlistitem.component.scss']
 })
 export class PostlistitemComponent implements OnInit {
-  @Input() title: string;
-  @Input() content: string;
+  @Input() post!: Post;
   loveVoteCount: number = 0;
   lastUpdate: Date = new Date();
 
@@ -25,11 +25,11 @@ export class PostlistitemComponent implements OnInit {
   }
 
   getTitle() {
-    return this.title;
+    return this.post.title;
   }
 
   getContent() {
-    return this.content;
+    return this.post.content;
   }
 
   downVote() {
