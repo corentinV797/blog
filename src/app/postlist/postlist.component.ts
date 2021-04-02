@@ -8,11 +8,9 @@ import Post from '../post.model';
   styleUrls: ['./postlist.component.scss']
 })
 export class PostlistComponent implements OnInit {
-  @Input() posts: Post[];
+  @Input() posts!: Post[];
 
-  constructor() {
-    this.posts = [];
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }
