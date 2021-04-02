@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import Post from '../post.model';
+import { PostsService } from '../services/posts.service';
 
 @Component({
   selector: 'app-postlistitem',
@@ -8,16 +9,15 @@ import Post from '../post.model';
 })
 export class PostlistitemComponent implements OnInit {
   @Input() post!: Post;
-  loveVoteCount: number = 0;
   lastUpdate: Date = new Date();
 
-  constructor() { }
+  constructor(private postsService: PostsService) { }
 
   ngOnInit(): void {
   }
 
   getLoveVoteCount() {
-    return this.loveVoteCount;
+    return this.post.loveVoteCount;
   }
 
   getLastUpdate() {
@@ -33,10 +33,10 @@ export class PostlistitemComponent implements OnInit {
   }
 
   downVote() {
-    this.loveVoteCount--;
+    this.postsService.dontLoveIt(this.post.id);
   }
 
   upVote() {
-    this.loveVoteCount++;
+    this.postsService.loveIt(this.post.id);
   }
 }
