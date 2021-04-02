@@ -9,7 +9,6 @@ import { PostsService } from '../services/posts.service';
 })
 export class PostlistitemComponent implements OnInit {
   @Input() post!: Post;
-  lastUpdate: Date = new Date();
 
   constructor(private postsService: PostsService) { }
 
@@ -21,7 +20,7 @@ export class PostlistitemComponent implements OnInit {
   }
 
   getLastUpdate() {
-    return this.lastUpdate;
+    return this.post.lastUpdate;
   }
 
   getTitle() {
