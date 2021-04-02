@@ -39,4 +39,8 @@ export class PostlistitemComponent implements OnInit {
   upVote() {
     this.postsService.loveIt(this.post.id);
   }
+
+  deletePost() {
+    this.postsService.removePost(this.post);
+  }
 }
