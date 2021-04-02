@@ -8,13 +8,10 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PostlistitemComponent implements OnInit {
   @Input() title: string;
   @Input() content: string;
-  loveVoteCount = 0;
-  lastUpdate = new Date();
+  loveVoteCount: number = 0;
+  lastUpdate: Date = new Date();
 
-  constructor() {
-    this.title = '';
-    this.content = '';
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }
